@@ -1,22 +1,34 @@
-# KMITL CE62
+# KMITL CE62 — Computer Engineering portfolio
 
-> A curated Computer Engineering study archive from King Mongkut's Institute of Technology Ladkrabang (KMITL).
+A semester-organized archive of my coursework at **King Mongkut's Institute of Technology Ladkrabang**: programming exercises, hardware laboratories, web applications, data projects, and research.
 
-This repository collects selected course projects, laboratories, source code, research notes, design work, and demonstrations from my KMITL Computer Engineering studies. It is organized by semester so that the learning path is easy to browse, while keeping generated environments, large datasets, model weights, private records, and course-only materials out of the public history.
+[Academic portfolio](https://tart-ratha-portfolio.ratha-tart.chatgpt.site/academic.html) · [Complete course map](COURSE_MAP.md) · [Visual guide](MEDIA.md)
 
-![Project 1 research framework](assets/project1-research-framework.png)
+## Find a course
 
-## At a glance
+**1S1 means Year 1, Semester 1.** Each course folder has a README with its course code, purpose, practical skills, source index, and starting points.
 
-| | |
-|---|---|
-| Program | Bachelor of Engineering in Computer Engineering |
-| Institution | King Mongkut's Institute of Technology Ladkrabang (KMITL) |
-| Coverage | Semester 1, Year 1 through Project 1 |
-| Main tools | C/C++, Python, Go, JavaScript, MATLAB, Arduino, STM32, SQL |
-| Repository style | Course-by-course archive inspired by [TKishioru/KMITL.CE](https://github.com/TKishioru/KMITL.CE) |
+For example: **[1S1/ICE](1S1/ICE/) = 01076001 Introduction to Computer Engineering**.
 
-The accompanying unofficial transcript was used as a private reference for the course map. It is not included in this repository; no student ID, date of birth, or grade-by-grade transcript is published here.
+| Archive | Focus |
+| --- | --- |
+| [1S1](1S1/) | C/C++, Arduino, programming foundations |
+| [1S2](1S2/) | OOP, circuits, Fun with Coding workshop |
+| [2S1](2S1/) | Data structures, digital hardware, credit-score notebooks |
+| [2S2](2S2/) | UDP networking and web development |
+| [3S1](3S1/) | STM32, operating systems, FoodBridge snapshot |
+| [3S2](3S2/) | AI, cloud, multimedia, software process |
+| [4S1](4S1/) | Expression-guided person segmentation research |
+
+## Skills represented
+
+- **Programming:** C/C++, Python, OOP, data structures, and algorithms.
+- **Web and backend:** Go, API design, relational models, JavaScript, and React exercises.
+- **Systems:** UDP sockets, concurrency, Arduino, STM32, and digital logic.
+- **AI and data:** Thai NLP, classification, data preparation, and segmentation research.
+- **Delivery:** Docker, deployment automation, testing, and service configuration.
+
+These describe the preserved work. Team contributions and third-party research code retain their original attribution; inclusion does not imply sole authorship.
 
 ## Featured work
 
@@ -29,7 +41,7 @@ A console-game project that grew from C/C++ movement, collision, projectile, sco
 - [Menu screenshot](assets/asteroid-invader-menu.png)
 - [Final demo video](assets/asteroid-invader-demo.mp4)
 
-### FoodBridge - Software Development / Project Work
+### FoodBridge — 01076035 Software Development Process in Practice
 
 A Go backend project with authentication, users, posts, bookings, comments, notifications, verification, and location-related domains. The included ER diagram shows the relational model and the source is grouped under [`3S1/PSPD/FoodBridge`](3S1/PSPD/FoodBridge).
 
@@ -43,7 +55,7 @@ An interface-design project centered on travel-package management, bookings, rev
 
 ### Image and Multimedia Processing
 
-The archive includes image-processing notebooks and MATLAB experiments covering photo mosaics, KNN-style workflows, block matching, motion estimation, and DCT-related processing. The EBMA result below is a compact example of the work in [`3S2/Multimedia`](3S2/Multimedia).
+The archive includes MATLAB experiments covering block matching, motion estimation, and DCT-related processing. The EBMA result below is a compact example of the work in [`3S2/Multimedia`](3S2/Multimedia).
 
 ![EBMA result](assets/multimedia-ebma-result.png)
 
@@ -56,104 +68,24 @@ The current project investigates a pipeline that combines an RGB frame with a na
 - [Research portal source](4S1/Project1/code/webapp)
 - [Framework figure](assets/project1-research-framework.png)
 
-## Academic path
-
-The complete sanitized course list and local-folder mapping are in [COURSE_MAP.md](COURSE_MAP.md). The short version is:
-
-<details>
-<summary><b>Year 1 - foundations and programming</b></summary>
-
-- Programming Fundamentals and Programming Project
-- Introduction to Computer Engineering
-- Calculus 1 and 2, Discrete Structure
-- Object-Oriented Programming and project work
-- Circuits and Electronics with practice
-- Human-Computer Interaction
-- Board-game technologies, application software, digital storytelling, and entrepreneurship foundations
-
-</details>
-
-<details>
-<summary><b>Year 2 - systems, data, and applications</b></summary>
-
-- Data structures and project work
-- Digital systems and practice
-- Computer organization and architecture
-- Computer networks and practice
-- Web application development and project work
-- Differential equations and linear algebra
-- Image processing and applied data-analysis projects
-
-</details>
-
-<details>
-<summary><b>Year 3 - professional computer engineering</b></summary>
-
-- Operating Systems
-- Microcontroller Application and Development with project work
-- Software Development Process and practice
-- UX/UI design and project work
-- Software project development
-- Internetworking Standards and Technologies
-- Cloud Architecture
-- Database Systems
-- Multimedia Systems
-- Artificial Intelligence
-- Computer Engineering Project Preparation
-
-</details>
-
-<details>
-<summary><b>Year 4 - project work</b></summary>
-
-- Computer Engineering Project 1
-- English for Work Preparation
-
-</details>
-
-## Repository layout
-
-```text
-KMITL-CE62/
-├── 1S1/   Year 1, semester 1: C/C++, electronics, fundamentals
-├── 1S2/   Year 1, semester 2: OOP, HCI, circuits, web and board games
-├── 2S1/   Year 2, semester 1: data structures, digital, image and ML work
-├── 2S2/   Year 2, semester 2: networks, organization and web applications
-├── 3S1/   Year 3, semester 1: OS, microcontrollers, software projects and UX/UI
-├── 3S2/   Year 3, semester 2: AI, cloud, networking, multimedia and software process
-├── 4S1/   Project 1: research notes, scripts and a lightweight web portal
-├── assets/ Selected screenshots, diagrams, an infographic-style framework, and one demo
-├── COURSE_MAP.md
-└── MEDIA.md
-```
-
-## Quick start
-
-Clone the archive and browse by semester:
+## Browse or run
 
 ```bash
 git clone https://github.com/RathaTart/KMITL-CE62.git
 cd KMITL-CE62
 ```
 
-Most folders are self-contained exercises or course submissions. For notebooks, open the `.ipynb` file with Jupyter. For C/C++, compile the individual source file with the toolchain expected by that exercise. For Go, start in the relevant project folder and read its `README.md`, `go.mod`, and configuration files before running it. For Project 1, begin with the Markdown notes in `4S1/Project1/docs`.
+Begin with a semester README, then the relevant course README. There is no repository-wide build: notebooks, hardware sketches, standalone exercises, and web services have different prerequisites. Datasets, helper libraries, hardware configurations, and model weights may need to be supplied separately.
 
-The archive intentionally does not include local virtual environments, large datasets, pretrained weights, build outputs, or machine-specific dependency caches. Recreate those from the project notes and dependency manifests when needed.
+## Course mapping notes
 
-FoodBridge includes a checked-in `.env.example` with development-only placeholders. Use real local secrets through environment variables and never commit a real `.env` file.
+- Folder placement preserves the original archive; academic placement follows the transcript.
+- FoodBridge is **01076035 Software Development Process in Practice**, despite its `3S1/PSPD` location.
+- `1S2/42` is **90642111 Fun with Coding**, recorded in Year 1, Semester 3.
+- `1S1/ProFund` covers **01076103 Programming Fundamental** and **01076104 Programming Project**.
+- The dropped Image course has been removed at the owner's request.
+- The [course map](COURSE_MAP.md) links only existing public material and clearly identifies shared archives and related artifacts.
 
-## Visual guide
+## Scope and attribution
 
-The selected visual material is indexed in [MEDIA.md](MEDIA.md). The images are included because they make the work easier to understand at a glance; they are not intended to replace the source or technical notes.
-
-## Public-sharing boundary
-
-This is a curated public study portfolio, not a full backup of the `Desktop/KMITL` directory. The following are intentionally omitted:
-
-- the unofficial transcript and other grade records;
-- internship, job-application, CV, and personal documents;
-- generated IDE folders, virtual environments, dependency caches, and build outputs;
-- raw datasets, model weights, archives, VM images, and oversized recordings;
-- materials that are useful locally but do not explain the software work.
-
-Some projects depend on third-party libraries or research models. Their original licenses and attribution notices remain the authority for those components.
+This is a curated academic portfolio, not a complete computer backup. Private records, credentials, large datasets, and generated environments are not included. Original licenses and attribution remain authoritative for third-party components. Historical samples demonstrate coursework and are not a blanket claim of production readiness.
