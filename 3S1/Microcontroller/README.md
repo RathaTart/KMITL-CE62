@@ -8,6 +8,12 @@
 
 STM32 lab source includes initialization, GPIO, interrupt handlers, startup code, and hardware abstraction layer configuration.
 
+## Visuals
+
+Project hardware alongside the lab source: the steel chassis, a stepper motor driven from the board with joystick input, the hub-motor wheels, and a driver board with soldered power devices.
+
+![Chassis frame, stepper motor and joystick wiring, hub motor wheels, and a soldered driver board](../../assets/microcontroller-build.jpg)
+
 ## Skills demonstrated
 
 **Embedded C** · **STM32** · **HAL** · **GPIO** · **Interrupt handling**

@@ -8,6 +8,16 @@
 
 MATLAB experiments cover integer and half-pixel exhaustive block matching, motion-vector visualization, DCT quantization, and video coding.
 
+## Visuals
+
+Exhaustive block matching estimates motion between an anchor frame and a target frame. The predicted frame and the motion field show how much of that motion the search recovered, and the block edges visible in the prediction are the artifacts the method is known for.
+
+![Anchor frame, target frame, predicted frame, and motion field from exhaustive block matching](../../assets/multimedia-motion-estimation.png)
+
+Quantizing the DCT coefficients leaves most of the frequency map empty while the reconstructed frame stays close to the original, which is the trade-off the coding experiments measure.
+
+![Original frame, its DCT, the quantized DCT, and the reconstruction](../../assets/multimedia-dct-quantization.png)
+
 ## Skills demonstrated
 
 **MATLAB** · **Motion estimation** · **Block matching** · **DCT** · **Video processing**

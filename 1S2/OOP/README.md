@@ -8,6 +8,12 @@
 
 Python exercises and project fragments cover classes, inheritance, encapsulation, account and basket models, APIs, and interaction diagrams.
 
+## Visuals
+
+The use-case view for the pizza-ordering project that the account, basket, combo, coupon, and payment modules implement.
+
+![Use-case diagram for the pizza ordering project](../../assets/oop-case-diagram.png)
+
 ## Skills demonstrated
 
 **Python** · **OOP** · **Inheritance** · **Encapsulation** · **Domain modeling**

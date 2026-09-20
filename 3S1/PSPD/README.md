@@ -8,6 +8,22 @@
 
 This folder contains a FoodBridge snapshot with Go feature modules, database access, authentication, Docker configuration, and relational domain models.
 
+## Visuals
+
+The relational model behind the Go feature modules:
+
+![FoodBridge entity relationship diagram](../../assets/foodbridge-er-diagram.png)
+
+Queue booking and user verification are the two flows that cross the most services, so they are the clearest illustration of how the modules interact.
+
+![Queue booking sequence diagram](../../assets/foodbridge-sequence-queue-booking.png)
+
+![User verification sequence diagram](../../assets/foodbridge-sequence-user-verification.png)
+
+The mobile screens show the donation feed, a post detail with its pickup window and location, and the saved-items view.
+
+![FoodBridge donation feed, post detail, and saved items screens](../../assets/foodbridge-app-screens.png)
+
 ## Skills demonstrated
 
 **Go** · **Echo** · **PostgreSQL** · **Backend architecture** · **Docker**

@@ -8,6 +8,12 @@
 
 MATLAB calculation and plotting scripts sit alongside an Arduino-compatible sensor-counter project with interrupt handling and debouncing.
 
+## Visuals
+
+The assembled lab circuit under test. The image links to a short demonstration clip.
+
+[![Circuits and electronics laboratory demonstration](../../assets/circuit-poster.jpg)](../../assets/circuit-demo.mp4)
+
 ## Skills demonstrated
 
 **MATLAB** · **Circuit analysis** · **Plotting** · **Interrupts** · **Debouncing**

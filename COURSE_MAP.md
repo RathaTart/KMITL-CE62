@@ -88,10 +88,10 @@ Academic placement follows the transcript. Grades and personal identifiers are o
 
 | Code | Course | Public work |
 | --- | --- | --- |
-| 01076016 | Computer Engineering Project Preparation | No matching public directory verified |
+| 01076016 | Computer Engineering Project Preparation | [Vehicle detection and tracking result](assets/cepp-vehicle-tracking.png) — Related artifact<br>[Detection and tracking clip](assets/cepp-vehicle-tracking.mp4) — Related artifact<br>[Aerial camouflaged-vehicle frame](assets/cepp-drone-camouflaged-vehicle.png) — Related artifact |
 | 01076035 | Software Development Process In Practice | [Software Development Process in Practice — FoodBridge archive — source](3S1/PSPD) — Coursework source<br>[Software Development Process in Practice — source](3S2/SoftDev) — Coursework source; [Portfolio project](https://tart-ratha-portfolio.ratha-tart.chatgpt.site/index.html?project=foodbridge) |
-| 01076040 | Internetworking Standards And Technologies | No matching public directory verified |
-| 01076041 | Internetworking Standards And Technologies In Practice | No matching public directory verified |
+| 01076040 | Internetworking Standards And Technologies | [Cisco Aspire contract and completion record](assets/ist-cisco-network-challenges.png) — Related artifact |
+| 01076041 | Internetworking Standards And Technologies In Practice | [Cisco Aspire contract and completion record](assets/ist-cisco-network-challenges.png) — Related artifact |
 | 01076043 | Introduction To Cloud Architecture | [Introduction to Cloud Architecture — source](3S2/Cloud) — Shared course archive |
 | 01076044 | Introduction To Cloud Architecture In Practice | [Introduction to Cloud Architecture — source](3S2/Cloud) — Shared course archive |
 | 01076263 | Database Systems | No matching public directory verified |

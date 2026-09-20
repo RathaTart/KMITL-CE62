@@ -43,21 +43,61 @@ A console-game project that grew from C/C++ movement, collision, projectile, sco
 
 ### FoodBridge — 01076035 Software Development Process in Practice
 
-A Go backend project with authentication, users, posts, bookings, comments, notifications, verification, and location-related domains. The included ER diagram shows the relational model and the source is grouped under [`3S1/PSPD/FoodBridge`](3S1/PSPD/FoodBridge).
+A Go backend project with authentication, users, posts, bookings, comments, notifications, verification, and location-related domains. The ER diagram shows the relational model and the source is grouped under [`3S1/PSPD/FoodBridge`](3S1/PSPD/FoodBridge).
 
 ![FoodBridge entity relationship diagram](assets/foodbridge-er-diagram.png)
 
+The delivered screens cover the donation feed, a post detail with its pickup window and location, and the saved-items view. Sequence diagrams for queue booking and user verification are in the [course README](3S1/PSPD/).
+
+![FoodBridge donation feed, post detail, and saved items screens](assets/foodbridge-app-screens.png)
+
+### Border surveillance detection — 01076016 Computer Engineering Project Preparation
+
+A pre-project studying detection of suspicious vehicles and objects, including camouflaged targets that ordinary detectors miss. The work pairs a roadside-camera detection and tracking model with aerial footage captured for the camouflage case.
+
+Detection and tracking assigns a persistent ID and a colour-and-type label to each vehicle:
+
+[![Vehicle detection and tracking with per-object IDs and class labels](assets/cepp-vehicle-tracking.png)](assets/cepp-vehicle-tracking.mp4)
+
+The aerial case is the harder one — a vehicle parked under tree cover, which is what motivated the camouflage-detection direction:
+
+![Aerial frame of a vehicle concealed under tree cover](assets/cepp-drone-camouflaged-vehicle.png)
+
+The registration plate in the tracking footage is blurred. Source and datasets for this project are not included in the archive.
+
 ### PlanGo - User Experience and User Interface Design
 
-An interface-design project centered on travel-package management, bookings, revenue, ratings, and dashboard reporting. A representative dashboard is included in [`assets/plango-dashboard.png`](assets/plango-dashboard.png).
+An interface-design project centered on travel-package management, bookings, revenue, ratings, and dashboard reporting. The work is a redesign, so the two dashboards below are the clearest summary of it.
 
-![PlanGo dashboard](assets/plango-dashboard.png)
+Before — the original TripTalk dashboard:
+
+![Original TripTalk dashboard](assets/uxui-dashboard-before.png)
+
+After — the PlanGo redesign, with filterable trend reporting, richer booking records, and per-package conversion:
+
+![PlanGo dashboard after the redesign](assets/plango-dashboard.png)
+
+![PlanGo partnership management screen](assets/uxui-partnership-management.png)
 
 ### Image and Multimedia Processing
 
-The archive includes MATLAB experiments covering block matching, motion estimation, and DCT-related processing. The EBMA result below is a compact example of the work in [`3S2/Multimedia`](3S2/Multimedia).
+MATLAB experiments cover block matching, motion estimation, and DCT-related processing in [`3S2/Multimedia`](3S2/Multimedia). Exhaustive block matching predicts a frame from its neighbour and produces the motion field that explains the prediction:
+
+![Anchor frame, target frame, predicted frame, and motion field](assets/multimedia-motion-estimation.png)
 
 ![EBMA result](assets/multimedia-ebma-result.png)
+
+### Hardware and laboratory work
+
+Arduino and STM32 coursework produced working hardware. Each image below links to a short demonstration clip.
+
+[![Traffic light state machine on a breadboard](assets/ice-traffic-light-poster.jpg)](assets/ice-traffic-light-demo.mp4)
+
+[![Shooter game on an Arduino game shield](assets/ice-shooter-poster.jpg)](assets/ice-shooter-demo.mp4)
+
+The microcontroller project chassis, motor drive, and driver electronics are shown in [`3S1/Microcontroller`](3S1/Microcontroller).
+
+![Chassis frame, stepper motor wiring, hub motor wheels, and a soldered driver board](assets/microcontroller-build.jpg)
 
 ### Project 1 - Expression-guided person segmentation
 
