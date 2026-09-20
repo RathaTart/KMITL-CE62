@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Shop Stock</title>
+    <style>
+        #stockResult {
+            display: none;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Check Shop Stock</h1>
+    <label for="shopId">Enter Shop ID:</label>
+    <input type="text" id="shopId" name="shopId">
+    <button onclick="fetchData()">Check Stock</button>
+    <div id="stockResult">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="stockList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        function fetchData() {
+            const shopId = document.getElementById('shopId').value;
+            fetch(`http://127.0.0.1:8001/shop_stock?shop_id_branch=${shopId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const stockList = document.getElementById('stockList');
+                    // Clear previous data
+                    stockList.innerHTML = '';
+
+                    // Append new data
+                    data.stock.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item[0]}</td>
+                            <td>${item[1]}</td>
+                        `;
+                        stockList.appendChild(row);
+                    });
+
+                    // Show the result section
+                    document.getElementById('stockResult').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+    </script>
+</body>
+</html>

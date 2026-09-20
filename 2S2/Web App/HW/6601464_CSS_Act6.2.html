@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Title</title>
+        <style>
+        .top {
+            color: #0000ff;
+            background-color: #ffd700;
+            text-align: center;
+        }
+        .article {
+            color: #dda0dd;
+            text-align: center;
+        }
+        .reporter {
+            display: flex;
+            justify-content: space-between;
+        }
+        .credit {
+            color: #4b86c7;
+        }
+        .image {
+            border : 3px solid #5fb1f5;
+            margin-right: 5%;
+        }
+        .flexbox {
+            display: flex;
+            justify-content: space-between;
+        }
+        .leftbox {
+            width: 50%;
+            text-align: left;
+        }
+        .rightbox {
+            width: 50%;
+            text-align: left;
+        }
+        .col1 {
+            width: 100%;
+            text-align: left;
+            color: black;
+        }
+        .col2 {
+            width: 100%;
+            text-align: left;
+            color: black;
+        }
+        .luckyform {
+            width: 265px;
+            text-align: left;
+        }
+        .footer-info {
+            color: #0000ff;
+            background-color: #ffd700;
+            text-align: center;
+            width: 100%;
+        }
+        .quoteblock {
+            text-align: left;
+            width: 90%;
+        }
+        .quote {
+            color: black;
+            text-align: left;
+            font-size: 250%;
+        }
+        hr {
+            color: black;
+            background-color: black;
+            height: 2px; 
+        }
+
+    </style>
+    </head>
+    <body>
+
+        <header class="top"><h1>SW Studio Today</h1></header>
+        <header class="article"><h2>The record of the CSS class</h2></header>
+
+        <div class="reporter">
+            <p class="credit">Reported by <br>Mr.ราธา โรจน์รุจิพงศ์<br>
+                (ทาร์ต)<br> ID 66011464<br><br><i><time datetime="2025-01-07"
+                        style="color: #ff008c;">Jan 07, 2025</i></p>
+                <img class="image"
+                    src="https://previews.123rf.com/images/gmast3r/gmast3r1809/gmast3r180900199/109840480-brunette-businessman-avatar-man-face-profile-icon-concept-online-support-service-male-cartoon-charac.jpg"
+                    alt="picture" width=200></time>
+        </div>
+        <br>
+
+        <div class="flexbox">
+
+            <div class="leftbox">
+
+                <article class="article">
+                    <section class="col1">
+                        <h3>Introduction</h3>
+                        <p>describe your background about CSS e.g.
+                            <ul>
+                                <li>do you know CSS?</li>
+                                <li>Have you ever been using CSS?</li>
+                                <li>Have you ever worked with CSS before?</li>
+                                <li>Have you any idea how CSS works?</li>
+                                <li>What are you expecting from CSS?</li>
+                                <li>etc.</li>
+                            </ul>
+                        </section>
+                    </article>
+                    <br>
+
+                    <section class="prog">
+                        <p>Progress of today's class <progress value="2"
+                                max="5"></progress></p>
+                    </section>
+                    <br>
+
+                    <section class="luckd">
+                        <p>register for lucky draw</p>
+                        <form class="luckyform">
+                            <fieldset>
+                                <label>Name:</label><em>*</em> <input
+                                    type="text" id="name"
+                                    placeholder="John Smith" autofocus
+                                    required><br>
+                                <label>email:</label><em>*</em> <input
+                                    type="email" id="email"
+                                    placeholder="abc@def.com" autofocus
+                                    required><br>
+                                <label>Tel:</label><em>*</em> <input type="tel"
+                                    id="tel" placeholder="0xx-xxxxxxx"
+                                    pattern="[0-9]{3}-[0-9]{7}" autofocus
+                                    required><br>
+                                <input type="submit">
+                            </fieldset>
+                        </form>
+                    </section>
+
+                </div>
+
+                <div class="rightbox">
+
+                    <article>
+                        <section class="col2">
+                            <h3>The expectation</h3>
+                            <p>Describe your expectations for today's class</p>
+                            <p>You can list it like this:</p>
+                            <ol>
+                                <li>expect #1</li>
+                                <li>expect #2</li>
+                                <li>expect #3</li>
+                            </ol>
+                        </section>
+                    </article>
+
+                    <div class="quoteblock">
+                        <hr>
+                        <aside class="quote">
+                            <p><em>your quote of today's class</em></p>
+                        </aside>
+                        <hr>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <footer class="footer-info">
+            ce.kmitl all rights reserved & copyright 2020
+        </footer>
+
+    </body>
+</html>

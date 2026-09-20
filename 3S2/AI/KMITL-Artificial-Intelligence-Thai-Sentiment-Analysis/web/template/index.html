@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Thai Sentiment Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Thai Sentiment Analysis</h1>
+        <p class="subtitle">01076582 Artificial Intelligence Assignment</p>
+
+        <!-- ========================= -->
+        <!-- Single Text Prediction -->
+        <!-- ========================= -->
+        <div class="card">
+            <h3>Single Text Prediction</h3>
+
+            <form id="ai-form">
+                <label for="text">Your sentiment</label>
+                <textarea id="text" placeholder="Type something to analyze..." required></textarea>
+                <button type="submit" id="predict-btn">Predict</button>
+            </form>
+
+            <!-- RESULT (NO SHIFT) -->
+            <div id="result" class="result">
+                <div class="result-row">
+                    <div class="result-left">
+                        <div id="sentiment" class="badge"></div>
+                    </div>
+
+                    <div class="result-right">
+                        <small id="confidence-text"></small>
+                        <div class="progress">
+                            <div id="confidence-bar" class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================= -->
+        <!-- Batch Prediction (JSON) -->
+        <!-- ========================= -->
+        <div class="card">
+            <h3>Batch Prediction (JSON Upload)</h3>
+
+            <form id="json-form">
+                <div class="drop-box" id="drop-box">
+                    <input type="file" id="json-file" accept=".json" />
+                    <p id="file-label">Drag & drop JSON file or click to upload</p>
+                </div>
+
+                <button type="submit" id="upload-btn" disabled>
+                    Download Result
+                </button>
+            </form>
+        </div>
+
+        <p class="footer">© 2026 King Mongkut’s Institute of Technology Ladkrabang (KMITL) <br>
+        This project is submitted for academic purposes only. <br>
+        Authors: 66010204, 66010794, 66011377, 66011464, 66011476</p>
+    </div>
+
+    <!-- ========================= -->
+    <!-- JavaScript -->
+    <!-- ========================= -->
+    <script>
+        /* ---------- SINGLE TEXT ---------- */
+        const form = document.getElementById("ai-form");
+        const resultBox = document.getElementById("result");
+        const sentimentBadge = document.getElementById("sentiment");
+        const confidenceBar = document.getElementById("confidence-bar");
+        const confidenceText = document.getElementById("confidence-text");
+        const predictBtn = document.getElementById("predict-btn");
+        const textInput = document.getElementById("text");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            predictBtn.disabled = true;
+            predictBtn.textContent = "Predicting...";
+
+            try {
+                const response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ prompt: textInput.value }),
+                });
+
+                const data = await response.json();
+
+                sentimentBadge.textContent = data.sentiment;
+                sentimentBadge.className = `badge ${data.sentiment}`;
+
+                const confidence = Math.round(data.confidence * 100);
+                confidenceBar.style.width = confidence + "%";
+                confidenceText.textContent = confidence + "% confidence";
+
+                resultBox.classList.add("visible");
+            } catch (err) {
+                alert("Prediction failed");
+                console.error(err);
+            } finally {
+                predictBtn.disabled = false;
+                predictBtn.textContent = "Predict";
+            }
+        });
+
+        /* ---------- DRAG & DROP ---------- */
+        const dropBox = document.getElementById("drop-box");
+        const fileInput = document.getElementById("json-file");
+        const fileLabel = document.getElementById("file-label");
+        const uploadBtn = document.getElementById("upload-btn");
+        const jsonForm = document.getElementById("json-form");
+
+        function handleFile(file) {
+            dropBox.classList.remove("error", "success");
+
+            if (!file.name.endsWith(".json")) {
+                dropBox.classList.add("error");
+                fileLabel.textContent = "Invalid file type (JSON only)";
+                uploadBtn.disabled = true;
+                fileInput.value = "";
+                return;
+            }
+
+            dropBox.classList.add("success");
+            fileLabel.textContent = file.name;
+            uploadBtn.disabled = false;
+        }
+
+        dropBox.addEventListener("dragenter", () => {
+            dropBox.classList.add("drag-over");
+        });
+
+        dropBox.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropBox.classList.add("drag-over");
+        });
+
+        dropBox.addEventListener("dragleave", () => {
+            dropBox.classList.remove("drag-over");
+        });
+
+        dropBox.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropBox.classList.remove("drag-over");
+
+            const files = e.dataTransfer.files;
+            if (!files.length) return;
+
+            fileInput.files = files;
+            handleFile(files[0]);
+        });
+
+        fileInput.addEventListener("change", () => {
+            if (fileInput.files.length) {
+                handleFile(fileInput.files[0]);
+            }
+        });
+
+        jsonForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            uploadBtn.disabled = true;
+            uploadBtn.textContent = "Processing...";
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            try {
+                const response = await fetch("/api/upload_json", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "sentiment_result.json";
+                a.click();
+                URL.revokeObjectURL(url);
+            } catch (err) {
+                alert("Download failed");
+                console.error(err);
+            } finally {
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = "Download Result";
+            }
+        });
+    </script>
+</body>
+
+</html>

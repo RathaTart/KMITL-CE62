@@ -1,0 +1,29 @@
+services:
+  #docker run --name hello -p 9085:80 nginx:alpine
+  hello:
+    image: nginx:alpine
+    ports:
+    - 9085:80
+
+#docker run --name mydb --network my-net -e MYSQL_ROOT_PASSWORD=dev-only-password -d mysql:latest
+  mydb:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-dev-only-password}
+
+#docker run --name myadmin --network my-net -d -e PMA_HOST=mydb -p 9082:80 phpmyadmin/phpmyadmin
+  myadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=mydb
+    ports:
+      - 9082:80
+
+#docker build -t xxx .
+#docker run --name my-app -p 9083:80 xxx
+  my-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9083:80

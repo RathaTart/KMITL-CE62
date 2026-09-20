@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://kubernetes.example.invalid
+  name: lab-cluster
+contexts:
+- context:
+    cluster: lab-cluster
+    namespace: example-namespace
+    user: lab-user
+  name: lab-context
+current-context: lab-context
+kind: Config
+preferences: {}
+users:
+- name: lab-user
+  user:
+    token: REDACTED_SERVICE_ACCOUNT_TOKEN

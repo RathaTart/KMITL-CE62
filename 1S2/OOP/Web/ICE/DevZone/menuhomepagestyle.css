@@ -1,0 +1,15 @@
+.category_food {
+    text-align: left;
+}
+
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    margin: 0 10px;
+}

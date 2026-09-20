@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercise 04</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .links {
+            margin: 10px 0;
+        }
+        .links a {
+            text-decoration: underline;
+            color: blue;
+            padding: 5px;
+        }
+        .links a:hover {
+            background-color: yellow;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+        #personal-info-details li {
+            text-decoration: underline;
+        }
+        #current-time {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            background-color: #000;
+            cursor: pointer;
+            display: none;
+            white-space: nowrap;  /* Prevent text from wrapping */
+            width: auto;  /* Let the width adjust based on content */
+        }
+
+    </style>
+        <script>
+        const worker = new Worker('worker.js');
+            var isrunning = false;
+
+            function startWorker() {
+                worker.postMessage('start');
+                worker.onmessage = function (e) {
+                    timebutton.innerHTML = e.data.date;
+                    Object.assign(timebutton.style, {
+                        color: e.data.textColor,
+                        backgroundColor: e.data.backgroundColor,
+                        position: 'fixed',
+                        top : 0,
+                        right : 0,
+                    });
+                };
+                isrunning = true;
+            }
+
+            function stopWorker() {
+                worker.postMessage('stop');
+                isrunning = false;
+                Object.assign(timebutton.style, {
+                    position: null,
+                });
+            }
+
+            timebutton.addEventListener('click', () => {
+                if (isrunning) {
+                    stopWorker();
+                } else {
+                    startWorker();
+                }
+            });
+
+
+
+
+
+        function togglePersonalInfo() {
+            const info = document.getElementById('personal-info-details');
+            if (info.classList.contains('hidden')) {
+                info.classList.remove('hidden');
+                info.classList.add('visible');
+            } else {
+                info.classList.remove('visible');
+                info.classList.add('hidden');
+            }
+        }
+
+        function changeImage(imageType) {
+            const img = document.getElementById('snapshot-image');
+            switch (imageType) {
+                case 'fireworks':
+                    img.src = 'https://static.vecteezy.com/system/resources/thumbnails/002/475/549/small_2x/colorful-firework-background-free-vector.jpg';
+                    break;
+                case 'crest':
+                    img.src = 'https://www.vojtechruzicka.com/static/edd60b6a3cb6d8de78c5117d8d6d13b3/5aac0/premium.png'; 
+                    break;
+                case 'action':
+                    img.src = 'https://t4.ftcdn.net/jpg/00/72/76/37/240_F_72763724_by9TH6BAQWZAYjC7llpKKmhHweEak7VC.jpg';
+                    break;
+                case 'buffalo':
+                    img.src = 'https://www.tetonscience.org/wp-content/uploads/2019/07/Screen-Shot-2019-07-18-at-10.48.10-AM-1024x777.png';
+                    break;
+            }
+        }
+    </script>
+    </head>
+    <body>
+        <h1>Exercise 04: JavaScript&amp;DOM</h1>
+
+        <button class="button" onclick="toggleTime()">Click me to display Date
+            and Time</button>
+
+        <div class="links">
+            <a href="#" onclick="togglePersonalInfo()">Personal Info</a>
+            <ul id="personal-info-details" class="hidden">
+                <li>ราธา โรจน์รุจิพงศ์ 66011464</li>
+                <li>Subject: Web Application Development</li>
+                <li>Semester 2</li>
+            </ul>
+        </div>
+
+        <h2>Snapshots</h2>
+        <ul>
+            <li><a href="#"
+                    onclick="changeImage('fireworks')">Fireworks</a></li>
+            <li><a href="#" onclick="changeImage('crest')">Crest</a></li>
+            <li><a href="#" onclick="changeImage('action')">Action</a></li>
+            <li><a href="#" onclick="changeImage('buffalo')">Buffalo</a></li>
+        </ul>
+
+        <div class="image-container">
+            <img id="snapshot-image"
+                src="https://www.pcc.kmitl.ac.th/wp-content/uploads/2022/03/kmitl-1366x768-1.png"
+                alt="Your Image Here" />
+        </div>
+
+        <div id="current-time" onclick="toggleFrozenTime()">Click here to freeze
+            time</div>
+    </body>
+</html>

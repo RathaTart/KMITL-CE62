@@ -1,0 +1,16 @@
+Endpoint:
+- Choose Category/Promotion >> Show Selected Part
+- Choose Food Category >> Show Food List
+- Add Selected Food/Drink to Cart >> Update Cart
+- View Cart >> Show Cart Detail
+- Request Payment >> Show Payment list
+- Fill in Information >> Update Order
+- Fill in Payment Method >> Update Payment
+- Pay Money >> Confirm Payment
+- Order Status >> Show Order Status
+- Show Confirm Order Interface >> Confirm that Order Arrive
+- Open Review >> Show Review Interface
+- Write Review >> Give Coupon
+- Request Transaction List >> Show Transaction List
+
+- Order List in Cart >> Update Status

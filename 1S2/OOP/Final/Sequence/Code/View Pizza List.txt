@@ -1,0 +1,22 @@
+title View Pizza List
+
+actor User
+participant Controller
+participant Shop
+database PizzaList
+
+User -> Controller: Request to view pizza list\n(shop_id_branch)
+activate Controller
+Controller -> Controller: Search_shop_by_ID\n(shop_id_branch)
+activate Controller
+alt Shop found
+    Controller -> Shop: Retrieve pizza list
+    activate Shop
+    Shop --> Controller: Pizza_list
+    deactivate Shop
+    Controller --> User: Send pizza list
+else Shop not found
+    Controller --> User: Send message "No pizza available"
+end
+deactivate Controller
+

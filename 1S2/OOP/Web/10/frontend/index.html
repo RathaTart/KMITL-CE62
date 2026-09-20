@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Selection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Select Your Pizza</h1>
+    </header>
+
+    <main>
+        <section id="menu">
+            <h2>Menu</h2>
+            <!-- List of pizza items gose here -->
+            <ul>
+                <li id="margherita">Margherita - $8.99 <button onclick="addToCart('Margherita', 8.99)">Add to Cart</button></li>
+                <li id="pepperoni">Pepperoni - $9.99 <button onclick="addToCart('Pepperoni', 9.99)">Add to Cart</button></li>
+                <li id="vegetarian">Vegetarian - $9.49 <button onclick="addToCart('Vegetarian', 9.49)">Add to Cart</button></li>
+            </ul>
+        </section>
+
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <!-- Cart items and summary goes here -->
+            <ul id="cartItems"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pizza Delivery</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

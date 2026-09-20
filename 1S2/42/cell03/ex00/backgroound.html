@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="backgroound.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backgroound</title>
+</head>
+<body>
+    <button onclick="changeBackgroundColor()">Click to Change Color</button>
+
+    <script>
+        function changeBackgroundColor() {
+            // Random color
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+
+            // RGB color
+            var randomColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+            // BG color change
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>

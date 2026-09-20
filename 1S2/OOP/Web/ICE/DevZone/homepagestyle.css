@@ -1,0 +1,13 @@
+.category_food {
+    font-family: Arial, sans-serif; /* เปลี่ยนแบบอักษร */
+    font-size: 24px; /* เปลี่ยนขนาดอักษร */
+    color: #333; /* เปลี่ยนสีข้อความ */
+    text-align: center; /* จัดข้อความตามศูนย์กลาง */
+    text-transform: uppercase; /* ทำให้ข้อความเป็นตัวพิมพ์ใหญ่ทั้งหมด */
+  }
+  
+  #home-section-icon {
+    width: 50px; /* เปลี่ยนขนาดของรูปภาพ */
+    height: 50px;
+    margin-right: 10px; /* เพิ่มระยะห่างระหว่างรูปภาพกับข้อความ */
+  }

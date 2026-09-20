@@ -1,0 +1,30 @@
+"""RexSeek frozen 4-bit proposal selector. gt_boxes API contains detector boxes only."""
+import argparse,hashlib,json,platform,re,sys,time
+from pathlib import Path
+ROOT=Path('/home/osta/lisa-eval/code');sys.path.insert(0,str(ROOT/'research_vendors/rexseek-runtime/packages'))
+import numpy as np,torch
+from PIL import Image
+from transformers import AutoProcessor,AutoModelForCausalLM,AutoTokenizer,BitsAndBytesConfig
+assert platform.node()=='cenara70hx'
+p=argparse.ArgumentParser();p.add_argument('--out',type=Path,default=ROOT/'results/extended_dev_20260915');p.add_argument('--limit',type=int,default=0);a=p.parse_args()
+path=ROOT/'research_vendors/rexseek-runtime/model';proc=AutoProcessor.from_pretrained(path,trust_remote_code=True,local_files_only=True);tok=AutoTokenizer.from_pretrained(path,use_fast=False,local_files_only=True)
+quant=BitsAndBytesConfig(load_in_4bit=True,bnb_4bit_compute_dtype=torch.float16,bnb_4bit_use_double_quant=True,bnb_4bit_quant_type='nf4',llm_int8_skip_modules=['vision_tower','vision_tower_aux','mm_projector','mm_object_projector','lm_head'])
+model,loading=AutoModelForCausalLM.from_pretrained(path,trust_remote_code=True,local_files_only=True,use_safetensors=True,quantization_config=quant,torch_dtype=torch.float16,device_map={'':0},output_loading_info=True,attn_implementation='eager')
+(a.out/'rexseek_loading.json').write_text(json.dumps(loading,indent=2,default=str));assert not loading['missing_keys'] and not loading['mismatched_keys'],loading
+quantized=[n for n,m in model.named_modules() if type(m).__name__=='Linear4bit'];(a.out/'rexseek_quantization_audit.json').write_text(json.dumps(dict(linear4bit_modules=quantized),indent=2));assert quantized and not any(n.startswith(('vision_tower','mm_projector','mm_object_projector')) for n in quantized),quantized
+model.eval();torch.manual_seed(2026091501);dst=a.out/'rexseek.jsonl';done={json.loads(s)['key'] for s in dst.read_text().splitlines() if s} if dst.exists() else set()
+for i in json.loads((a.out/'manifest.json').read_text())['items'][:a.limit or None]:
+    if i['key'] in done:continue
+    im=Image.open(i['image']).convert('RGB');data=np.load(i['proposals']);boxes=data['boxes'].tolist();prompt=f'Please detect {i["expression"]} in this image. Answer the question with object indexes.';start=time.perf_counter()
+    if boxes:
+        x=proc.process(image=im,question=prompt,bbox=boxes);x={k:v.cuda().half() if v.is_floating_point() else v.cuda() for k,v in x.items()}
+        with torch.inference_mode(),torch.autocast('cuda',dtype=torch.float16):o=model.generate(x.pop('input_ids'),**x,do_sample=False,max_new_tokens=96)
+        torch.cuda.synchronize();answer=tok.batch_decode(o,skip_special_tokens=False)[0].strip();groups=re.findall(r'<objects>(.*?)</objects>',answer,re.S);indices=sorted(set(int(s) for group in groups for s in re.findall(r'<obj(\d+)>',group)));valid=bool(groups) and all(0<=j<len(boxes) for j in indices)
+        if not valid:indices=[]
+    else:answer='';indices=[];valid=True
+    row=dict(key=i['key'],prompt=prompt,raw_answer=answer,selected_indices=indices,valid=valid,detector_candidate_count=len(boxes),seconds=time.perf_counter()-start)
+    with dst.open('a') as f:f.write(json.dumps(row)+'\n')
+    print(i['key'],answer,flush=True)
+(a.out/'rexseek_config.json').write_text(json.dumps(dict(model=str(path),quantization='NF4 language linear layers; vision/projectors/head fp16',training=False,gt_boxes='API name for detector proposals, no annotation boxes',max_new_tokens=96,script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),peak_memory_gib=torch.cuda.max_memory_allocated()/2**30),indent=2))
+
+

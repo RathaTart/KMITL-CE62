@@ -1,0 +1,9 @@
+services:
+  node-24:
+    build:
+      context: .
+      dockerfile: Dockerfile.node-24
+    restart: always
+    command: ["sleep", "infinity"]
+    volumes: 
+      - ../:/home/node/source

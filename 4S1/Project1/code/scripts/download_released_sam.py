@@ -1,0 +1,3 @@
+import sys,json,requests,subprocess
+from pathlib import Path
+R=Path('/home/osta/lisa-eval/released-models');repo='wayneicloud/SSP-SAM';name='pretrained_checkpoints/sam_vit_h_4b8939.pth';meta=requests.get('https://huggingface.co/api/models/'+repo+'?blobs=true',timeout=60).json();f=next(f for f in meta['siblings'] if f['rfilename']==name);dest=R/'weights/sam_vit_h_4b8939.pth';digest=f['lfs']['sha256'];(R/'sam_download.json').write_text(json.dumps(dict(repo=repo,revision=meta['sha'],file=name,sha256=digest,dest=str(dest)),indent=2));subprocess.run([sys.executable,'/home/osta/lisa-eval/code/scripts/robust_download.py','https://huggingface.co/'+repo+'/resolve/'+meta['sha']+'/'+name,str(dest),'--sha256',digest],check=True)

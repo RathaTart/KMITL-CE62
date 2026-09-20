@@ -1,0 +1,127 @@
+<!-- 66011464 ราธา โรจน์รุจิพงศ์ -->
+<!-- main part -->
+
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div id="contentContainer"></div>
+        <script>
+            const contentContainer = document.getElementById('contentContainer');
+
+            const exerciseTitle = document.createElement('h2');
+            exerciseTitle.textContent = 'Exercise 04: JavaScript&DOM';
+            contentContainer.appendChild(exerciseTitle);
+
+            const toggleTimeButton = document.createElement('button');
+            toggleTimeButton.textContent = 'Click me to display Date and Time';
+            contentContainer.appendChild(toggleTimeButton);
+
+            const breakLine = document.createElement("div");
+            breakLine.innerHTML = "<br>";
+            contentContainer.appendChild(breakLine);
+
+            const personalInfoToggle = document.createElement('div');
+            personalInfoToggle.textContent = 'Personal Info';
+            personalInfoToggle.style.color = 'pink';
+            personalInfoToggle.style.textDecoration = 'underline';
+            personalInfoToggle.style.cursor = 'pointer';
+            personalInfoToggle.style.width = 'fit-content';
+            contentContainer.appendChild(personalInfoToggle);
+// -------------------------------------------------------------------------------------Start : Peronal Info--------------------------------------------------------------------------------------------------
+            const personalInfoContent = document.createElement('div');
+            personalInfoContent.innerHTML = 
+            `<ul>
+                <li>ราธา โรจน์รุจิพงศ์ 66011464</li>
+                <li>Web Application Development</li>
+                <li>Semester 2</li>
+            </ul>`;
+            personalInfoContent.style.display = 'none';
+            contentContainer.appendChild(personalInfoContent);
+
+            personalInfoToggle.addEventListener('click', () => {
+                personalInfoContent.style.display = 
+                    personalInfoContent.style.display === 'none' ? 'block' : 'none';
+            });
+
+            personalInfoToggle.addEventListener('mouseover', () => {
+                personalInfoToggle.style.color = 'blue';
+                personalInfoToggle.style.backgroundColor = 'yellow';
+            });
+
+            personalInfoToggle.addEventListener('mouseout', () => {
+                personalInfoToggle.style.backgroundColor = '';
+                personalInfoToggle.style.color = 'pink';
+            });
+// -------------------------------------------------------------------------------------Start : Snapshots--------------------------------------------------------------------------------------------------
+            const snapshotHeading = document.createElement('h1');
+            snapshotHeading.textContent = 'Snapshots';
+            contentContainer.appendChild(snapshotHeading);
+
+            const snapshotList = document.createElement('ul');
+            const snapshotNames = ['Fireworks', 'Crest', 'Action', 'Buffalo'];
+            const snapshotImages = [
+                'https://static.vecteezy.com/system/resources/thumbnails/002/475/549/small_2x/colorful-firework-background-free-vector.jpg',
+                'https://www.vojtechruzicka.com/static/edd60b6a3cb6d8de78c5117d8d6d13b3/5aac0/premium.png',
+                'https://t4.ftcdn.net/jpg/00/72/76/37/240_F_72763724_by9TH6BAQWZAYjC7llpKKmhHweEak7VC.jpg',
+                'https://www.tetonscience.org/wp-content/uploads/2019/07/Screen-Shot-2019-07-18-at-10.48.10-AM-1024x777.png'
+            ];
+
+            snapshotNames.forEach((name, index) => {
+                const snapshotItem = document.createElement('li');
+                const snapshotLink = document.createElement('div');
+                snapshotLink.textContent = name;
+                Object.assign(snapshotLink.style, {
+                    color: 'blue',
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    width: 'fit-content'
+                });
+                snapshotItem.appendChild(snapshotLink);
+                snapshotList.appendChild(snapshotItem);
+                snapshotLink.addEventListener('click', () => {
+                    displayImage.src = snapshotImages[index];
+                });
+            });
+            contentContainer.appendChild(snapshotList);
+
+            // default img
+            const displayImage = document.createElement('img');
+            displayImage.src = 'https://www.pcc.kmitl.ac.th/wp-content/uploads/2022/03/kmitl-1366x768-1.png';
+            displayImage.style.width = '600px';
+            contentContainer.appendChild(displayImage);
+// -------------------------------------------------------------------------------------Start : Web Worker (Time and Date)--------------------------------------------------------------------------------------------------
+            const timeWorker = new Worker('WebWorker.js');
+            let workerActive = false;
+
+            function startTimeWorker() {
+                timeWorker.postMessage('start');
+                timeWorker.onmessage = function (e) {
+                    toggleTimeButton.textContent = e.data.date;
+                    Object.assign(toggleTimeButton.style, {
+                        color: e.data.textColor,
+                        backgroundColor: e.data.backgroundColor,
+                        position: 'fixed',
+                        top: 0,
+                        right: 0,
+                    });
+                };
+                workerActive = true;
+            }
+
+            function stopTimeWorker() {
+                timeWorker.postMessage('stop');
+                workerActive = false;
+                toggleTimeButton.style.position = '';
+            }
+
+            toggleTimeButton.addEventListener('click', () => {
+                if (workerActive) {
+                    stopTimeWorker();
+                } else {
+                    startTimeWorker();
+                }
+            });
+        </script>
+    </body>
+</html>

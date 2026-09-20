@@ -1,0 +1,1 @@
+controller.add_drink('coke', 15)

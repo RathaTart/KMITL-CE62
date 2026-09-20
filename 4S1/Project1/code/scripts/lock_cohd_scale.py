@@ -1,0 +1,7 @@
+import json,hashlib,platform,datetime
+from pathlib import Path
+assert platform.node()=='cenara70hx'
+C=Path('/home/osta/lisa-eval/code');O=C/'results/cohd_scale_20260915';p=O/'method_lock.json';assert not p.exists()
+files=[C/'scripts/cohd_scale_engine.py',C/'scripts/run_cohd_scale.py',O/'dev_manifest.json',O/'confirmation_manifest.json',O/'language_manifest.json',O/'dev704/summary.json',O/'dev_guard/summary.json',O/'filter_development.json']
+lock=dict(primary='scale704_guard',secondary='scale768_guard',selected=['scale704_guard','scale768_guard'],utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),selection_reason='704 improves both development MOTS small coverage (3/5 vs 2/5) and VIRAT matched-person recall while remaining faster, with MOTS pixel FP down and VIRAT FP 32 vs31 within10%. 768 is a prespecified higher-recall alternative with borderline5% overhead, not a replacement chosen after confirmation.',rule='FP32 original480; AMP FP16 selected scale; bilinear spatial-input adapter only; remove components under4096 pixels unless height>=20 and width/height<=1.2; no weight updates',primary_runtime_limit=1.05,secondary_runtime_band=1.10,confirmation_scope='New frames from explored fixed cameras, no unseen-camera generalization',language_scope='32 reused COCO images, native hat/clothing/absent expressions, not CCTV hat annotations',hashes={str(f):hashlib.sha256(f.read_bytes()).hexdigest() for f in files})
+p.write_text(json.dumps(lock,indent=2));print(json.dumps(lock,indent=2))

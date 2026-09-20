@@ -1,0 +1,16 @@
+Arduino nano 3.0	145
+R 220
+R 10k
+R 100k
+R 3.3k
+NTC 5k
+สายเมียเมีย
+สายเมียผู้
+สายผู้ผู้
+IC U1 LM358
+LED
+R ปรับค่า (VR 100k)
+Breadboard
+Motor
+Button
+Diode

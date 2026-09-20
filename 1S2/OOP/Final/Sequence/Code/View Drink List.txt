@@ -1,0 +1,20 @@
+title View Drink List
+
+actor User
+participant Controller
+participant Shop
+
+User -> Controller: Request to view drink list\n(shop_id_branch)
+activate Controller
+Controller -> Controller: Search_shop_by_ID\n(shop_id_branch)
+activate Controller
+alt Shop found
+    Controller -> Shop: Retrieve drink list
+    activate Shop
+    Shop --> Controller: Drink list
+    deactivate Shop
+    Controller --> User: Send drink list
+else Shop not found
+    Controller --> User: Send message "No drinks available"
+end
+deactivate Controller

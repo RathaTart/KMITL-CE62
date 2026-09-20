@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backgroound</title>
+    <!-- Include your CSS file -->
+    <link rel="stylesheet" type="text/css" href="backgroound.css">
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <button id="changeColorBtn">Click to Change Color</button>
+
+    <script>
+        // Wait for the document to be fully loaded
+        $(document).ready(function() {
+            // jQuery click event
+            $('#changeColorBtn').click(function() {
+                // Random color
+                var red = Math.floor(Math.random() * 256);
+                var green = Math.floor(Math.random() * 256);
+                var blue = Math.floor(Math.random() * 256);
+
+                // RGB color
+                var randomColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+                // BG color change using jQuery
+                $('body').css('background-color', randomColor);
+            });
+        });
+    </script>
+</body>
+</html>

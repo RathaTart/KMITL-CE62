@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .calculator {
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .calculator div {
+            margin-bottom: 10px;
+        }
+        .calculator input, .calculator select {
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div>
+            <input type="keyboard" id="leftMember" placeholder="Input1">
+        </div>
+        <div>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+        </div>
+        <div>
+            <input type="keyboard" id="rightMember" placeholder="Input2">
+        </div>
+        <div>
+            <input type="button" value="Try me!" onclick="calculate()">
+        </div>
+    </div>
+    <script>
+        function calculate() {
+            const leftMember = document.getElementById('leftMember').value;
+            const operator = document.getElementById('operator').value;
+            const rightMember = document.getElementById('rightMember').value;
+            
+            if (isNaN(leftMember) || isNaN(rightMember) || leftMember === '' || rightMember === '' || leftMember < 0 || rightMember < 0){
+                alert('Error :(');
+                console.log('Error :(');
+                return;
+            }
+
+            
+            const left = parseInt(leftMember);
+            const right = parseInt(rightMember);
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = left + right;
+                    break;
+                case '-':
+                    result = left - right;
+                    break;
+                case '*':
+                    result = left * right;
+                    break;
+                case '/':
+                    if (right === 0) {
+                        alert('It’s over 9000!');
+                        console.log('It’s over 9000!');
+                        return;
+                    }
+                    result = left / right;
+                    break;
+                case '%':
+                    if (right === 0) {
+                        alert('It’s over 9000!');
+                        console.log('It’s over 9000!');
+                        return;
+                    }
+                    result = left % right;
+                    break;
+                default:
+                    alert('Error :(');
+                    console.log('Error :(');
+                    return;
+            }
+
+            alert(`Result: ${result}`);
+            console.log(`Result: ${result}`);
+        }
+
+        setInterval(() => {
+            alert('Please, use me...');
+        }, 30000);
+    </script>
+</body>
+</html>
