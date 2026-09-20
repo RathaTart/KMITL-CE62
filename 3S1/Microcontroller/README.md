@@ -16,9 +16,11 @@ Component work that preceded the assembled vehicle: the steel chassis, a stepper
 
 ## Result
 
-The finished vehicle, built on a corrugated-panel body over the hub-motor drive wheels from the progress photos above. Control hardware is mounted on the upper deck, with an intake funnel at the front.
+The final project was open-ended — build anything the board can drive. The result is a wire-controlled gel-blaster tank.
 
-![Completed vehicle on the laboratory floor, showing the hub-motor drive wheels, panelled body, intake funnel, and deck-mounted controls](../../assets/microcontroller-vehicle-final.jpg)
+It steers tank-style: the two hub motors are driven independently, so a speed difference between the sides turns the vehicle and opposing directions spin it on the spot. Control is over a tether rather than a radio link. The turret carries a motor-driven gel launcher aimed on two axes, X for traverse and Y for elevation, fed from the orange hopper. An ultrasonic sensor provides radar-style range sensing.
+
+![Completed gel-blaster tank showing the hub-motor drive wheels, panelled body, gel hopper, and turret](../../assets/microcontroller-vehicle-final.jpg)
 
 Looking down on the deck, the control layout is visible end to end:
 
@@ -26,17 +28,19 @@ Looking down on the deck, the control layout is visible end to end:
 
 | Component | Role |
 |---|---|
-| Hub-motor wheels | Direct drive, one per side, carried over from the progress build |
-| Ultrasonic sensor on a card mount | Forward range sensing |
-| Arcade joystick | Manual directional input |
+| Hub-motor wheels | Independent left and right drive for tank steering |
+| Gel hopper | Gravity feed for the projectiles |
+| Launcher motor | Propels gel projectiles |
+| Two-axis turret drive | Traverse on X, elevation on Y |
+| Ultrasonic sensor on a card mount | Radar-style range sensing |
+| Arcade joystick | Wired driving and aiming input |
 | Red mushroom button | Emergency stop |
 | Panel switch and contactor block | Main power switching |
-| Rotary potentiometer | Analogue set-point input |
+| Rotary potentiometer | Analogue control input |
 | Lithium battery pack | Onboard power |
 | Breadboard and loom | Signal routing between the board, sensor, and drivers |
-| Intake funnel | Front-mounted collection mouth |
 
-These photographs record the delivered hardware; the control firmware is the STM32 source in [`Lab`](Lab/).
+Differential drive, two-axis aiming, and ultrasonic ranging all reduce to the same primitives as the lab exercises — timer-driven motor outputs, GPIO, and interrupt-driven echo timing. These photographs record the delivered hardware; the control firmware is the STM32 source in [`Lab`](Lab/).
 
 ## Skills demonstrated
 

@@ -95,9 +95,9 @@ Arduino and STM32 coursework produced working hardware. Each image below links t
 
 [![Shooter game on an Arduino game shield](assets/ice-shooter-poster.jpg)](assets/ice-shooter-demo.mp4)
 
-The microcontroller project ran from bare components to a working vehicle: a corrugated-panel body over hub-motor drive wheels, with an ultrasonic sensor, arcade joystick, emergency stop, switchgear, and battery on the control deck.
+The microcontroller final project was open-ended — build anything the board can drive. The result is a wire-controlled gel-blaster tank: independent hub motors give tank-style steering, a two-axis turret aims a motor-driven gel launcher fed from the hopper, and an ultrasonic sensor provides radar-style ranging.
 
-![Completed vehicle showing the hub-motor drive wheels, panelled body, intake funnel, and deck-mounted controls](assets/microcontroller-vehicle-final.jpg)
+![Completed gel-blaster tank showing the hub-motor drive wheels, panelled body, gel hopper, and turret](assets/microcontroller-vehicle-final.jpg)
 
 The component build-up and the full control layout are in [`3S1/Microcontroller`](3S1/Microcontroller).
 

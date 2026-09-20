@@ -57,7 +57,7 @@ These three are plot outputs extracted from `02_Model_Trainning.ipynb`.
 | File | What it shows |
 |---|---|
 | [microcontroller-build.jpg](assets/microcontroller-build.jpg) | Chassis frame, stepper motor and joystick wiring, hub-motor wheels, soldered driver board |
-| [microcontroller-vehicle-final.jpg](assets/microcontroller-vehicle-final.jpg) | The completed vehicle: panelled body, hub-motor drive wheels, intake funnel, deck-mounted controls |
+| [microcontroller-vehicle-final.jpg](assets/microcontroller-vehicle-final.jpg) | The completed gel-blaster tank: hub-motor drive wheels, panelled body, gel hopper, turret |
 | [microcontroller-vehicle-layout.jpg](assets/microcontroller-vehicle-layout.jpg) | Top-down control deck: ultrasonic sensor, battery, joystick, emergency stop, switchgear, breadboard |
 
 ## Internetworking standards
