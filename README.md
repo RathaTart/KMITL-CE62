@@ -95,9 +95,11 @@ Arduino and STM32 coursework produced working hardware. Each image below links t
 
 [![Shooter game on an Arduino game shield](assets/ice-shooter-poster.jpg)](assets/ice-shooter-demo.mp4)
 
-The microcontroller project chassis, motor drive, and driver electronics are shown in [`3S1/Microcontroller`](3S1/Microcontroller).
+The microcontroller project ran from bare components to a working vehicle: a corrugated-panel body over hub-motor drive wheels, with an ultrasonic sensor, arcade joystick, emergency stop, switchgear, and battery on the control deck.
 
-![Chassis frame, stepper motor wiring, hub motor wheels, and a soldered driver board](assets/microcontroller-build.jpg)
+![Completed vehicle showing the hub-motor drive wheels, panelled body, intake funnel, and deck-mounted controls](assets/microcontroller-vehicle-final.jpg)
+
+The component build-up and the full control layout are in [`3S1/Microcontroller`](3S1/Microcontroller).
 
 ### Project 1 - Expression-guided person segmentation
 
