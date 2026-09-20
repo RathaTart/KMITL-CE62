@@ -10,15 +10,19 @@ Arduino exercises connect programming with physical devices: LEDs, dot matrices,
 
 ## Visuals
 
-Each image links to a short demonstration clip.
+Each image has a playable demonstration clip below it.
 
 The table-driven state machine drives a traffic-light sequence wired on a breadboard:
 
-[![Traffic light state machine running on a breadboard](../../assets/ice-traffic-light-poster.jpg)](../../assets/ice-traffic-light-demo.mp4)
+![Traffic light state machine running on a breadboard](../../assets/ice-traffic-light-poster.jpg)
+
+https://github.com/user-attachments/assets/2d11edbf-728c-42a2-96fd-328aa3ec5fcf
 
 The shooter game runs on an Arduino game shield with a TFT display, joystick, and button input:
 
-[![Shooter game running on an Arduino game shield](../../assets/ice-shooter-poster.jpg)](../../assets/ice-shooter-demo.mp4)
+![Shooter game running on an Arduino game shield](../../assets/ice-shooter-poster.jpg)
+
+https://github.com/user-attachments/assets/23466bd2-90c2-4782-a1e9-1e9fe9be32fe
 
 ## Skills demonstrated
 

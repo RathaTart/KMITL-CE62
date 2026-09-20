@@ -10,9 +10,11 @@ MATLAB calculation and plotting scripts sit alongside an Arduino-compatible sens
 
 ## Visuals
 
-The assembled lab circuit under test. The image links to a short demonstration clip.
+The assembled lab circuit under test, with a playable demonstration clip below it.
 
-[![Circuits and electronics laboratory demonstration](../../assets/circuit-poster.jpg)](../../assets/circuit-demo.mp4)
+![Circuits and electronics laboratory demonstration](../../assets/circuit-poster.jpg)
+
+https://github.com/user-attachments/assets/341bd50a-ffb3-46a3-a5ff-1359045863b9
 
 ## Skills demonstrated
 

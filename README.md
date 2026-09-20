@@ -39,7 +39,10 @@ A console-game project that grew from C/C++ movement, collision, projectile, sco
 - [GameText.c](1S1/C%20C%2B%2B/Com%20Funda/GameText.c) - ship, bullets, stars, and score
 - [Game.cpp](1S1/C%20C%2B%2B/Com%20Funda/Game.cpp) - earlier movement and projectile prototype
 - [Menu screenshot](assets/asteroid-invader-menu.png)
-- [Final demo video](assets/asteroid-invader-demo.mp4)
+
+Final gameplay demo (2 minutes):
+
+https://github.com/user-attachments/assets/3cfb1827-f388-4bd6-86e7-27ddc7d11dec
 
 ### FoodBridge — 01076035 Software Development Process in Practice
 
@@ -57,7 +60,9 @@ A pre-project studying detection of suspicious vehicles and objects, including c
 
 Detection and tracking assigns a persistent ID and a colour-and-type label to each vehicle:
 
-[![Vehicle detection and tracking with per-object IDs and class labels](assets/cepp-vehicle-tracking.png)](assets/cepp-vehicle-tracking.mp4)
+![Vehicle detection and tracking with per-object IDs and class labels](assets/cepp-vehicle-tracking.png)
+
+https://github.com/user-attachments/assets/19ad02c7-cb11-492b-9a1e-d56513cb92e7
 
 The aerial case is the harder one — a vehicle parked under tree cover, which is what motivated the camouflage-detection direction:
 
@@ -89,11 +94,15 @@ MATLAB experiments cover block matching, motion estimation, and DCT-related proc
 
 ### Hardware and laboratory work
 
-Arduino and STM32 coursework produced working hardware. Each image below links to a short demonstration clip.
+Arduino and STM32 coursework produced working hardware. The short demonstration clips play below their images.
 
-[![Traffic light state machine on a breadboard](assets/ice-traffic-light-poster.jpg)](assets/ice-traffic-light-demo.mp4)
+![Traffic light state machine on a breadboard](assets/ice-traffic-light-poster.jpg)
 
-[![Shooter game on an Arduino game shield](assets/ice-shooter-poster.jpg)](assets/ice-shooter-demo.mp4)
+https://github.com/user-attachments/assets/2d11edbf-728c-42a2-96fd-328aa3ec5fcf
+
+![Shooter game on an Arduino game shield](assets/ice-shooter-poster.jpg)
+
+https://github.com/user-attachments/assets/23466bd2-90c2-4782-a1e9-1e9fe9be32fe
 
 The microcontroller final project was open-ended — build anything the board can drive. The result is a wire-controlled gel-blaster tank: independent hub motors give tank-style steering, a two-axis turret aims a motor-driven gel launcher fed from the hopper, and an ultrasonic sensor provides radar-style ranging.
 

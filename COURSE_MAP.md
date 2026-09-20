@@ -17,7 +17,7 @@ Academic placement follows the transcript. Grades and personal identifiers are o
 | --- | --- | --- |
 | 01076001 | Introduction To Computer Engineering | [Introduction to Computer Engineering — source](1S1/ICE) — Coursework source |
 | 01076103 | Programming Fundamental | [Programming Fundamental — source](1S1/C%20C%2B%2B) — Coursework source<br>[Programming laboratories — source](1S1/ProFund) — Shared course archive |
-| 01076104 | Programming Project | [Programming laboratories — source](1S1/ProFund) — Shared course archive<br>[Related programming game demo](assets/asteroid-invader-demo.mp4) — Related artifact |
+| 01076104 | Programming Project | [Programming laboratories — source](1S1/ProFund) — Shared course archive<br>[Play the related programming game demo](https://github.com/user-attachments/assets/3cfb1827-f388-4bd6-86e7-27ddc7d11dec) — Related artifact |
 | 01076140 | Calculus 1 | No matching public directory verified |
 | 90594007 | Law For Entrepreneurs | No matching public directory verified |
 | 90641002 | Digital Intelligence Quotient | No matching public directory verified |
@@ -88,7 +88,7 @@ Academic placement follows the transcript. Grades and personal identifiers are o
 
 | Code | Course | Public work |
 | --- | --- | --- |
-| 01076016 | Computer Engineering Project Preparation | [Vehicle detection and tracking result](assets/cepp-vehicle-tracking.png) — Related artifact<br>[Detection and tracking clip](assets/cepp-vehicle-tracking.mp4) — Related artifact<br>[Aerial camouflaged-vehicle frame](assets/cepp-drone-camouflaged-vehicle.png) — Related artifact |
+| 01076016 | Computer Engineering Project Preparation | [Vehicle detection and tracking result](assets/cepp-vehicle-tracking.png) — Related artifact<br>[Play the detection and tracking clip](https://github.com/user-attachments/assets/19ad02c7-cb11-492b-9a1e-d56513cb92e7) — Related artifact<br>[Aerial camouflaged-vehicle frame](assets/cepp-drone-camouflaged-vehicle.png) — Related artifact |
 | 01076035 | Software Development Process In Practice | [Software Development Process in Practice — FoodBridge archive — source](3S1/PSPD) — Coursework source<br>[Software Development Process in Practice — source](3S2/SoftDev) — Coursework source; [Portfolio project](https://tart-ratha-portfolio.ratha-tart.chatgpt.site/index.html?project=foodbridge) |
 | 01076040 | Internetworking Standards And Technologies | [Cisco Aspire contract and completion record](assets/ist-cisco-network-challenges.png) — Related artifact |
 | 01076041 | Internetworking Standards And Technologies In Practice | [Cisco Aspire contract and completion record](assets/ist-cisco-network-challenges.png) — Related artifact |

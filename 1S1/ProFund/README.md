@@ -18,6 +18,10 @@ Keywords describe the preserved work, not sole authorship of team exercises or m
 
 Open LAB and LAB/Debug_Lab4. The final game source is not present in this folder.
 
+The related Asteroid Invader final gameplay demo plays here:
+
+https://github.com/user-attachments/assets/3cfb1827-f388-4bd6-86e7-27ddc7d11dec
+
 ## Browse
 
 - [LAB](LAB/)
