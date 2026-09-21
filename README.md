@@ -112,8 +112,13 @@ The component build-up and the full control layout are in [`3S1/Microcontroller`
 
 ### Project 1 - Expression-guided person segmentation
 
-The current project investigates a pipeline that combines an RGB frame with a natural-language expression to produce a pixel-level person mask, including an explicit empty-mask result when no person matches. The project notes describe dataset decisions, evaluation protocol, verification, model comparisons, and runtime experiments.
+The current project combines a fixed-camera RGB frame with a natural-language expression to produce a pixel-level person mask, including an explicit empty-mask result when no person matches. It compares LISA-7B-v1, SSP-SAM-224, and CoHD-Tiny under shared evaluation protocols.
 
+The latest report records a guarded 704-pixel inference setting that raised MOTS coverage recall from **62.39% to 77.32%** on 120 confirmation frames. On VIRAT, matched people increased from **10 to 48 of 635**, false-positive components fell from **150 to 120**, and mean runtime changed from **0.6541 to 0.5934 seconds per image**. These are sample-specific progress results, not an unseen-camera generalization claim.
+
+![MOTS20 comparison from the latest Project 1 progress report](assets/project1-scale-mots.png)
+
+- [Project overview, evidence, and limitations](4S1/Project1/README.md)
 - [Research notes](4S1/Project1/docs/research-and-roadmap.md)
 - [Project scripts](4S1/Project1/code/scripts)
 - [Research portal source](4S1/Project1/code/webapp)
